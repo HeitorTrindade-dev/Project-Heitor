@@ -58,6 +58,8 @@ H.E.I.T.O.R.:
 * ⚡ **Fuzzy Matching Semântico**: Não precisa digitar o título exato. Diga `/heitor entreguei o trabalho de grafos` e ele localiza a tarefa correspondente e conclui.
 * 💡 **Ressuscitador Semanal de Ideias**: Toda segunda-feira, o H.E.I.T.O.R. resgata uma ideia do seu backlog para você avaliar se quer priorizar ou arquivar.
 * 🧬 **Refatoração Taxonômica Inteligente**: Se você criar vários projetos de um mesmo tema (ex: 3 projetos de Roblox), ele agrupa tudo automaticamente sob um subgrupo `Projetos/Roblox/`, atualizando links e o índice sem você pedir (e com regra anti-fragmentação para nunca criar pastas inúteis para itens isolados).
+* ⚠️ **Alerta de Pendências Atrasadas**: Se você esqueceu uma tarefa de ontem ou de dias anteriores, ele coloca no topo absoluto do seu dia para nada se perder no passado.
+* 🎯 **Ranking de Prioridades (Alta, Média, Baixa)**: Ao perguntar `/heitor o que tem pra hoje?`, ele não cospe uma lista desordenada; entrega as tarefas divididas por prioridade (🔴 Essenciais, 🟡 Médias, 🟢 Rápidas) para você focar no que realmente importa.
 
 ---
 

@@ -195,12 +195,22 @@ O arquivo `README.md` na raiz do cofre deve **sempre** refletir a realidade atua
 Quando o usuário fizer perguntas pelo `/heitor`:
 
 * `/heitor o que tem pra hoje?`:
-  - Leia o `README.md` e as notas de subgrupos.
-  - Filtre tarefas com prazo para hoje ou em atraso.
-  - Exiba uma lista limpa com checkboxes e seus respectivos subgrupos.
+  - **1. Checagem Obrigatória de Atrasadas (Overdue Rollover)**:
+    - O assistente busca tarefas com data limite anterior à data de hoje que ainda não foram marcadas com `[x]`.
+    - Se houver, coloca no topo absoluto com alerta:
+      `⚠️ PENDÊNCIAS ATRASADAS (Não deixe acumular!):`
+      `- [ ] Tarefa (Venceu em DD/MM) — [Grupo/Subgrupo]`
+  - **2. Ordenação por Prioridade (Ranking de Importância)**:
+    - O assistente classifica e agrupa as tarefas de hoje por relevância, entregando na seguinte ordem:
+      - 🔴 **Prioridade Alta**: Provas, entregas imediatas, bugs críticos ou prazos de hoje.
+      - 🟡 **Prioridade Média**: Tarefas de desenvolvimento, estudos regulares ou entregas da semana.
+      - 🟢 **Prioridade Baixa**: Tarefas operacionais rápidas ou adiáveis.
+  - Formate a resposta de forma limpa, direta e acionável.
+
 * `/heitor como tá a semana?`:
   - Filtre tarefas e prazos dos próximos 7 dias.
-  - Apresente um resumo agrupado por dia/subgrupo.
+  - Alerte previamente sobre dias com sobrecarga (ex: dias com 2 ou mais entregas/provas).
+  - Apresente um resumo agrupado por dia e prioridade.
 * `/heitor conclui <tarefa>` ou `/heitor terminei <tarefa>`:
   - Localize a tarefa correspondente no cofre usando **Fuzzy Matching Semântico** (o usuário não precisa digitar o título exato; termos aproximados como *"fiz o trabalho de grafos"* devem localizar a tarefa *"Entregar trabalho prático de Grafos"*).
   - Altere `- [ ]` para `- [x]` com a data de conclusão.
