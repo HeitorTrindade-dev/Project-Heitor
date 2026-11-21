@@ -29,7 +29,9 @@ Antes de qualquer ação, verifique se o arquivo de configuração existe em:
 `~/.config/heitor/config.json`
 
 ### Se o arquivo NÃO existir:
-Inicie o fluxo de onboarding fazendo duas perguntas simples:
+Antes de iniciar, verifique se o GitHub CLI está autenticado executando `gh auth status`. Se não estiver, oriente o usuário a rodar `gh auth login` primeiro.
+
+Em seguida, inicie o fluxo de onboarding fazendo duas perguntas simples:
 1. *"Você já tem um repositório no GitHub para suas anotações ou prefere que eu crie um novo repositório privado para você?"*
 2. **Se o usuário já tiver**:
    - Peça o caminho local da pasta (ou faça o clone com `gh repo clone <usuario/repo> ~/Documentos/<repo>`).
@@ -50,6 +52,9 @@ Inicie o fluxo de onboarding fazendo duas perguntas simples:
      git add . && git commit -m "chore: inicializar cofre pessoal H.E.I.T.O.R." && git push -u origin main
      ```
 4. Salve a configuração em `~/.config/heitor/config.json`:
+   ```bash
+   mkdir -p ~/.config/heitor
+   ```
    ```json
    {
      "vault_path": "/caminho/absoluto/do/cofre",
@@ -102,6 +107,7 @@ Para garantir que anotações feitas no celular ou via web nunca conflitem:
    ```bash
    cd "$VAULT_PATH" && git pull --rebase --autostash
    ```
+   *Nota de segurança*: Se o comando falhar por conflito de merge, execute imediatamente `git rebase --abort` e avise o usuário qual arquivo causou o conflito para que ele possa revisar sem risco de perder dados.
 2. **Executar a Modificação**:
    - Criar ou atualizar os arquivos Markdown dentro da estrutura.
    - **OBRIGATÓRIO**: Atualizar o `README.md` na raiz do cofre (ele é o Índice Geral da vida do usuário).
