@@ -152,6 +152,19 @@ Quando o subgrupo for uma matéria da faculdade:
   > *"💡 **Ideia da semana para reflexão:**  
   > Você anotou: `[Nome da Ideia]`. Quer priorizar isso para esta semana ou deixar no backlog?"*
 
+### 🧬 Refatoração Taxonômica Dinâmica & Regra Anti-Fragmentação:
+O assistente deve manter o cofre estruturado e inteligente, evitando que pastas fiquem superlotadas ou fragmentadas desnecessariamente:
+1. **Detecção de Padrões e Agrupamento (Clustering)**:
+   - Se dentro de um grupo (ex: `Projetos/`) houver **$\ge 3$ subgrupos ou notas** compartilhando o mesmo nicho, cliente, tecnologia ou contexto (ex: 3 projetos de `Roblox`, 3 clientes de `Freelance`, ou 3 matérias de um mesmo departamento):
+     - O assistente cria automaticamente a categoria agregadora (ex: `Projetos/Roblox/`).
+     - Move os itens correspondentes usando `git mv` (preservando o histórico Git).
+     - Atualiza todos os links relativos correspondentes e regenera o `README.md` (Índice Geral).
+     - Informa ao usuário com transparência:
+       > *"🧹 **Organização Automática:** Notei 3 projetos de Roblox soltos em `Projetos/` e os agrupei sob `Projetos/Roblox/`, mantendo todos os links e o Índice atualizados!"*
+2. **Regra Anti-Fragmentação (Evitar Pastas Inúteis)**:
+   - **Proibido criar pastas para itens únicos**: Nunca crie uma pasta para abrigar apenas 1 arquivo solitário. Mantenha-o no nível imediatamente superior até que surjam pelo menos 3 itens que justifiquem a criação do subgrupo.
+   - **Limite de Profundidade**: Mantenha no máximo 3 níveis de profundidade (`Grupo / Subgrupo / Arquivo.md`) para não transformar o cofre em um labirinto inalcançável.
+
 ### Prazos e Datas Naturais:
 Converta menções informais de tempo para a data correta no formato ISO (`📅 YYYY-MM-DD`):
 - *"hoje"* ➔ Data atual

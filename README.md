@@ -57,6 +57,7 @@ H.E.I.T.O.R.:
 * 🧹 **Filtro Anti-Ansiedade**: Tarefas concluídas há mais de 7 dias são arquivadas automaticamente em seções colapsadas, mantendo suas notas sempre limpas e focadas.
 * ⚡ **Fuzzy Matching Semântico**: Não precisa digitar o título exato. Diga `/heitor entreguei o trabalho de grafos` e ele localiza a tarefa correspondente e conclui.
 * 💡 **Ressuscitador Semanal de Ideias**: Toda segunda-feira, o H.E.I.T.O.R. resgata uma ideia do seu backlog para você avaliar se quer priorizar ou arquivar.
+* 🧬 **Refatoração Taxonômica Inteligente**: Se você criar vários projetos de um mesmo tema (ex: 3 projetos de Roblox), ele agrupa tudo automaticamente sob um subgrupo `Projetos/Roblox/`, atualizando links e o índice sem você pedir (e com regra anti-fragmentação para nunca criar pastas inúteis para itens isolados).
 
 ---
 
