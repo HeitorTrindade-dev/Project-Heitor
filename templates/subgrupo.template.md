@@ -24,3 +24,13 @@ status: ativo
 
 ## 📝 Notas, Ideias e Histórico
 {{NOTES}}
+
+---
+
+<details>
+<summary>📦 Histórico de Concluídas (Anti-Ansiedade)</summary>
+
+<!-- Tarefas concluídas há mais de 7 dias são arquivadas aqui automaticamente para manter o visual limpo -->
+{{ARCHIVED_TASKS}}
+
+</details>

@@ -51,6 +51,15 @@ H.E.I.T.O.R.:
 
 ---
 
+## ✨ Superpoderes Integrados
+
+* 🎓 **Calculadora de Aprovação & Alerta de Faltas**: Diga *"faltei em Redes hoje"* e ele calcula suas faltas restantes. Diga *"tirei 6.5 na P1"* e ele calcula quanto você precisa na P2 para passar direto sem prova final!
+* 🧹 **Filtro Anti-Ansiedade**: Tarefas concluídas há mais de 7 dias são arquivadas automaticamente em seções colapsadas, mantendo suas notas sempre limpas e focadas.
+* ⚡ **Fuzzy Matching Semântico**: Não precisa digitar o título exato. Diga `/heitor entreguei o trabalho de grafos` e ele localiza a tarefa correspondente e conclui.
+* 💡 **Ressuscitador Semanal de Ideias**: Toda segunda-feira, o H.E.I.T.O.R. resgata uma ideia do seu backlog para você avaliar se quer priorizar ou arquivar.
+
+---
+
 ## 📂 Estrutura Padrão do Cofre (Vault)
 
 O H.E.I.T.O.R. organiza o seu repositório de anotações com a seguinte hierarquia limpa:

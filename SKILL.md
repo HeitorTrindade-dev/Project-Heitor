@@ -128,7 +128,29 @@ Não utilize categorias pré-definidas ou rígidas. Extraia a hierarquia a parti
 ### Regras de Organização no Disco:
 - Cada subgrupo possui sua pasta e seu arquivo de detalhes:
   `$VAULT_PATH/<Grupo>/<Subgrupo>/README.md`
-- Se for a primeira vez que um grupo/subgrupo é mencionado, crie a pasta e inicialize o arquivo `README.md` daquele subgrupo usando o template `templates/subgrupo.template.md`.
+- Se for a primeira vez que um grupo/subgrupo é mencionado, crie a pasta e inicialize o arquivo `README.md` daquele subgrupo:
+  - Se for disciplina acadêmica (`Estudos`/`Faculdade`): use `templates/materia.template.md`.
+  - Para outros grupos: use `templates/subgrupo.template.md`.
+
+### 🎓 Gestão Acadêmica: Calculadora de Média & Controle de Faltas:
+Quando o subgrupo for uma matéria da faculdade:
+- **Controle de Faltas**: Ao ouvir menções como *"faltei em Compiladores hoje"* ou *"mais uma falta em Redes"*:
+  - Incremente o contador de faltas no cabeçalho e na tabela.
+  - Calcule: `Faltas Restantes = Limite Máximo - Faltas Atuais`.
+  - Responda avisando a margem de segurança (ex: *"4/15 faltas usadas. Você ainda tem 11 faltas disponíveis"*). Se faltarem $\le 3$ faltas, emita um alerta de perigo.
+- **Calculadora de Aprovação**: Ao ouvir notas como *"tirei 6.5 na P1 de Compiladores"*:
+  - Registre a nota na tabela de avaliações.
+  - Recalcule a média ponderada e informe a nota necessária na próxima prova para aprovação direta sem prova final (ex: *"Com P1 = 6.5 (peso 2), você precisa de $\ge 7.3$ na P2 (peso 3) para passar direto com média 7.0"*).
+
+### 🧹 Filtro Anti-Ansiedade (Limpeza Automática):
+- Tarefas marcadas com `[x]` há mais de 7 dias **não devem poluir** a lista principal.
+- O assistente move automaticamente tarefas concluídas antigas para a seção colapsada `<details><summary>📦 Histórico de Concluídas</summary>` no final do arquivo, mantendo o topo focado exclusivamente nas pendências ativas.
+
+### 💡 Ressuscitador Semanal de Ideias:
+- Toda **segunda-feira** (ao checar a semana ou no briefing semanal), verifique o backlog de ideias em `Projetos/` ou `Ideias/`.
+- Se houver ideias sem movimentação há mais de 7 dias, selecione **uma ideia** e adicione uma nota amigável ao final do resumo:
+  > *"💡 **Ideia da semana para reflexão:**  
+  > Você anotou: `[Nome da Ideia]`. Quer priorizar isso para esta semana ou deixar no backlog?"*
 
 ### Prazos e Datas Naturais:
 Converta menções informais de tempo para a data correta no formato ISO (`📅 YYYY-MM-DD`):
@@ -167,8 +189,8 @@ Quando o usuário fizer perguntas pelo `/heitor`:
   - Filtre tarefas e prazos dos próximos 7 dias.
   - Apresente um resumo agrupado por dia/subgrupo.
 * `/heitor conclui <tarefa>` ou `/heitor terminei <tarefa>`:
-  - Localize a tarefa correspondente no cofre.
-  - Altere `- [ ]` para `- [x]`.
+  - Localize a tarefa correspondente no cofre usando **Fuzzy Matching Semântico** (o usuário não precisa digitar o título exato; termos aproximados como *"fiz o trabalho de grafos"* devem localizar a tarefa *"Entregar trabalho prático de Grafos"*).
+  - Altere `- [ ]` para `- [x]` com a data de conclusão.
   - Atualize o `README.md` (Índice).
   - Faça o commit e push.
 
