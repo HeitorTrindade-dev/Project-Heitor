@@ -90,6 +90,15 @@ O H.E.I.T.O.R. organiza o seu repositório de anotações com a seguinte hierarq
 
 ---
 
+## 🔄 Auto-Atualização Semanal Inteligente
+
+Você nunca precisa se preocupar em atualizar a skill manualmente:
+* Toda **segunda-feira** (ou após 7 dias da última checagem), quando você rodar `/heitor`, ele verifica silenciosamente se há novidades no repositório oficial.
+* Se houver, ele lista as melhorias e correções e pergunta se você deseja atualizar.
+* Se você aceitar, ele atualiza na hora e executa sua tarefa. Se você recusar, ele só volta a lembrar na semana seguinte!
+
+---
+
 ## 📱 Sincronização Mobile com o Obsidian (Gratuita)
 
 Para acessar suas anotações no celular (Android ou iOS):

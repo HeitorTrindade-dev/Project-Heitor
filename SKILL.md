@@ -54,14 +54,47 @@ Inicie o fluxo de onboarding fazendo duas perguntas simples:
    {
      "vault_path": "/caminho/absoluto/do/cofre",
      "github_repo": "usuario/nome-do-repo",
-     "auto_sync": true
+     "auto_sync": true,
+     "last_update_check": "YYYY-MM-DD"
    }
    ```
 5. Confirme para o usuário que o cofre foi configurado e processe a mensagem original dele!
 
 ---
 
-## 3. Protocolo Safe Git Sync (Obrigatório em Todas as Ações)
+## 3. Verificação Semanal de Atualizações (Weekly Self-Update)
+
+O assistente cuida da sua própria evolução para garantir que o usuário sempre tenha as novidades e correções mais recentes:
+
+1. **Gatilho de Verificação**:
+   - Toda **segunda-feira** OU se já se passaram **$\ge 7$ dias** desde a data registrada em `last_update_check` no `config.json`.
+2. **Checagem Silenciosa**:
+   - Execute silenciosamente o script de checagem da skill:
+     ```bash
+     ~/.gemini/config/skills/heitor/scripts/check-update.sh --check
+     ```
+   - Se estiver atualizado (`UP_TO_DATE`), atualize o campo `last_update_check` para a data de hoje no `config.json` e prossiga com o comando do usuário normalmente.
+3. **Se Houver Atualização Disponível**:
+   - Apresente um aviso elegante ao usuário **antes** de executar a tarefa:
+     > *"🛡️ **Atualização do H.E.I.T.O.R. disponível!**  
+     > Encontrei melhorias no repositório oficial:  
+     > `<lista concisa das novidades/commits>`  
+     >   
+     > Deseja atualizar agora? (Sim / Não)"*
+   - **Se o usuário aceitar (Sim)**:
+     - Execute:
+       ```bash
+       ~/.gemini/config/skills/heitor/scripts/check-update.sh --apply
+       ```
+     - Atualize o campo `last_update_check` para a data de hoje no `config.json`.
+     - Confirme a atualização e continue executando a solicitação original do usuário.
+   - **Se o usuário recusar (Não) ou adiar**:
+     - Respeite a decisão e atualize o `last_update_check` para a data de hoje (assim a pergunta só voltará a ser feita na próxima semana).
+     - Prossiga diretamente com a solicitação original do usuário.
+
+---
+
+## 4. Protocolo Safe Git Sync (Obrigatório em Todas as Ações)
 
 Para garantir que anotações feitas no celular ou via web nunca conflitem:
 
@@ -79,7 +112,7 @@ Para garantir que anotações feitas no celular ou via web nunca conflitem:
 
 ---
 
-## 4. Motor de Classificação Dinâmica (Grupos e Subgrupos)
+## 5. Motor de Classificação Dinâmica (Grupos e Subgrupos)
 
 Não utilize categorias pré-definidas ou rígidas. Extraia a hierarquia a partir do contexto da mensagem do usuário:
 
@@ -107,7 +140,7 @@ Se o usuário mandar várias coisas misturadas (ex: *"preciso mandar o relatóri
 
 ---
 
-## 5. O Índice Geral Obrigatório (`$VAULT_PATH/README.md`)
+## 6. O Índice Geral Obrigatório (`$VAULT_PATH/README.md`)
 
 O arquivo `README.md` na raiz do cofre deve **sempre** refletir a realidade atual. Ele contém:
 1. Timestamp da última sincronização (`YYYY-MM-DD HH:MM:SS`).
@@ -116,7 +149,7 @@ O arquivo `README.md` na raiz do cofre deve **sempre** refletir a realidade atua
 
 ---
 
-## 6. Modos de Consulta e Ações Rápidas
+## 7. Modos de Consulta e Ações Rápidas
 
 Quando o usuário fizer perguntas pelo `/heitor`:
 
@@ -135,7 +168,7 @@ Quando o usuário fizer perguntas pelo `/heitor`:
 
 ---
 
-## 7. Tom e Estilo de Resposta
+## 8. Tom e Estilo de Resposta
 
 - **Conciso, ágil e encorajador**: Sem respostas longas ou explicativas demais.
 - **Confirmação Clara**: Mostre exatamente o que foi salvo, em qual Grupo/Subgrupo e confirme que foi sincronizado no GitHub.
